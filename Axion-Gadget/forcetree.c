@@ -1879,6 +1879,7 @@ int force_treeevaluate_shortrange(int target, int mode)
 #ifdef FDM
       if(mass/P[target].Mass<100000.0)
       {
+		norm = P[target].Mass; /*This will make the FdmNormMass parameter useless.*/	
 		fdm = 4.0*(61.437/(pow(lambda,4.0)*All.G))*pow(2.5/axion,2.0)*(mass/norm)*exp(-2.0*r2/pow(lambda,2.0))*(1-2.0*r2/pow(lambda,2.0));
 #ifdef FDMBIAS
         len2 = nop->len;
@@ -1890,12 +1891,12 @@ int force_treeevaluate_shortrange(int target, int mode)
 #endif
         if(fdm<1.0&&fdm>-1.0)
         {
+          fdm *= shortrange_table[tabindex];
           fdm_acc_x += dx * fdm * All.G;
           fdm_acc_y += dy * fdm * All.G;
           fdm_acc_z += dz * fdm * All.G;
 	    }
 	  }
-      /* Here we adopt axion mass to be 2.5e-22 eV and wave length to be 1 kpc */
 #endif
 #ifdef FDMTEST
       printf("afterFDM,r=%lf,mass=%lf,ratio=%f,fdm=%lf\n",r,mass,mass/P[no].Mass,fdm);
