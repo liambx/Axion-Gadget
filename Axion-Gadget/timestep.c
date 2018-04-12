@@ -265,19 +265,23 @@ void advance_and_find_timesteps(void)
 	      dt_hydrokick = get_hydrokick_factor(tstart, tend);
 	      dt_gravkick2 = get_gravkick_factor(P[i].Ti_endstep, tend);
 	      dt_hydrokick2 = get_hydrokick_factor(P[i].Ti_endstep, tend);
+/*
 #ifdef FDM
 		  dt_quankick = get_quankick_factor(tstart, tend);
 		  dt_quankick2 = get_quankick_factor(P[i].Ti_endstep, tend);
-#endif	      
+#endif
+*/	      
 	    }
 	  else
 	    {
 	      dt_entr = dt_gravkick = dt_hydrokick = (tend - tstart) * All.Timebase_interval;
 	      dt_gravkick2 = dt_hydrokick2 = dt_entr2 = (tend - P[i].Ti_endstep) * All.Timebase_interval;
+/*
 #ifdef FDM
 		  dt_quankick = dt_entr;
 		  dt_quankick2 = dt_entr2;
-#endif		      
+#endif
+*/		      
 	    }
 
 	  P[i].Ti_begstep = P[i].Ti_endstep;
@@ -290,9 +294,11 @@ void advance_and_find_timesteps(void)
 	    {
 	      dv[j] = P[i].GravAccel[j] * dt_gravkick;
 	      P[i].Vel[j] += dv[j];
+/*
 #ifdef FDM
 		  P[i].Vel[j] += P[i].QuanAccel[j] * dt_quankick;
-#endif	
+#endif
+*/ 	
 	    }
 
 	  if(P[i].Type == 0)	/* SPH stuff */

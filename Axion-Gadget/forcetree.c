@@ -1543,6 +1543,10 @@ int force_treeevaluate_shortrange(int target, int mode)
   double v = 1.0;
   v = P[target].Vel[0]*P[target].Vel[0]+P[target].Vel[1]*P[target].Vel[1]+P[target].Vel[2]*P[target].Vel[2];
   v = sqrt(v);
+  if(All.ComovingIntegrationOn)
+  {
+	  v *= sqrt(All.Time);
+  }
   lambda = 120.5/(axion*v);
   if(lambda>10.0)
   {
@@ -1892,9 +1896,9 @@ int force_treeevaluate_shortrange(int target, int mode)
         if(fdm<1.0&&fdm>-1.0)
         {
           fdm *= shortrange_table[tabindex];
-          fdm_acc_x += dx * fdm * All.G;
-          fdm_acc_y += dy * fdm * All.G;
-          fdm_acc_z += dz * fdm * All.G;
+          fdm_acc_x += dx * fdm;
+          fdm_acc_y += dy * fdm;
+          fdm_acc_z += dz * fdm;
 	    }
 	  }
 #endif
@@ -1913,7 +1917,21 @@ int force_treeevaluate_shortrange(int target, int mode)
 	  acc_x += dx * fac;
 	  acc_y += dy * fac;
 	  acc_z += dz * fac;
+#ifdef FDM
+	  if(All.ComovingIntegrationOn)
+	  {
+	    acc_x += fdm_acc_x/All.Time;
+	    acc_y += fdm_acc_y/All.Time;
+	    acc_z += fdm_acc_z/All.Time;		  
+	  }
+	  else
+	  {
+		acc_x += fdm_acc_x;
+		acc_y += fdm_acc_y;
+		acc_z += fdm_acc_z;  
+	  }
 	  
+#endif	  
 	  ninteractions++;
 	}
     }
