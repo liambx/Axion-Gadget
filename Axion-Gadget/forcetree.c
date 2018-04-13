@@ -1891,7 +1891,11 @@ int force_treeevaluate_shortrange(int target, int mode)
         //D = pow(2.0*D1*D1*D1*D2*D2*D2/(D1*D1*D1+D2*D2*D2),1.0/3.0);
         D = pow((((len1*len1*len1)+(len2*len2*len2))/(num1+num2)),1.0/3.0);
         bias = (D/lambda) * (D/lambda) * (D/lambda) / (10.0 + (D/lambda) * (D/lambda) * (D/lambda));
-        fdm = bias*fdm;
+        if(bias>0.0&&bias<1.0)
+        {
+          fdm = bias*fdm;
+	    }
+	    
 #endif
         if(fdm<1.0&&fdm>-1.0)
         {
