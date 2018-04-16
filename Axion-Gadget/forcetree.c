@@ -1446,12 +1446,12 @@ int force_treeevaluate(int target, int mode, double *ewaldcountsum)
         bias = (D/lambda) * (D/lambda) * (D/lambda) / (10.0 + (D/lambda) * (D/lambda) * (D/lambda));
         fdm = bias*fdm;
 #endif
-        if(fdm<1.0&&fdm>-1.0)
-        {
+        //if(fdm<1.0&&fdm>-1.0)
+        //{
           fdm_acc_x += dx * fdm * All.G;
           fdm_acc_y += dy * fdm * All.G;
           fdm_acc_z += dz * fdm * All.G;
-	    }
+	    //}
 	  }
       /* Here we adopt axion mass to be 2.5e-22 eV and wave length to be 1 kpc */
 #endif
@@ -1897,13 +1897,13 @@ int force_treeevaluate_shortrange(int target, int mode)
 	    }
 	    
 #endif
-        if(fdm<1.0&&fdm>-1.0)
-        {
+        //if(fdm<1.0&&fdm>-1.0)
+        //{
           fdm *= shortrange_table[tabindex];
           fdm_acc_x += dx * fdm;
           fdm_acc_y += dy * fdm;
           fdm_acc_z += dz * fdm;
-	    }
+	    //}
 	  }
 #endif
 #ifdef FDMTEST
