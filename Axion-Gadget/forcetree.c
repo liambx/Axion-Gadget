@@ -1883,7 +1883,9 @@ int force_treeevaluate_shortrange(int target, int mode)
 #ifdef FDM
       if(mass/P[target].Mass<100000.0)
       {
-		//norm = P[target].Mass; /*This will make the FdmNormMass parameter useless.*/	
+#ifdef FDMFIXNORM		
+		norm = P[target].Mass; /*This will make the FdmNormMass parameter useless.*/	
+#endif		
 		fdm = 4.0*(61.437/(pow(lambda,4.0)*All.G))*pow(2.5/axion,2.0)*(mass/norm)*exp(-2.0*r2/pow(lambda,2.0))*(1-2.0*r2/pow(lambda,2.0));
 #ifdef FDMBIAS
         len2 = nop->len;

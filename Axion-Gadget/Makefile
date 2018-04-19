@@ -62,12 +62,16 @@ OPT   +=  -DSYNCHRONIZATION
 #OPT   +=  -DISOTHERM_EQS
 #OPT   +=  -DADAPTIVE_GRAVSOFT_FORGAS
 #OPT   +=  -DSELECTIVE_NO_GRAVITY=2+4+8+16
+
+#--------------------------------------- Things for Fuzzy Dark Matter
 OPT   +=  -DFDM
 #OPT   +=  -DFDMTEST
 OPT   +=  -DFDMBIAS
 #OPT   +=  -DFDMBIASTEST
 #OPT   +=  -DFDMADAPTIVE
 OPT   +=  -DFDMGRAVSOFT
+OPT   +=  -DFDMFIXNORM
+
 #--------------------------------------- Testing and Debugging options
 #OPT   +=  -DFORCETEST=0.1
 
