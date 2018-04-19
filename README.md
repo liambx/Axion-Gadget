@@ -18,17 +18,19 @@ Please feel free to use my code and make modifications. Just remember to cite my
 
 The new functions are optional in the Makefile, including: 
 
-For turn on the new physics about FDM:               OPT   +=  -DFDM
+For turn on the new physics about FDM:               OPT   +=  -DFDM (Suggest to turn it on)
 
 For testing the calculation about FDM:               OPT   +=  -DFDMTEST (normally no need to turn it on)
 
-For some further correction of FDM:                  OPT   +=  -DFDMBIAS
+For some further correction of FDM:                  OPT   +=  -DFDMBIAS (Suggest to turn it on)
 
 For testing the further correction:                  OPT   +=  -DFDMBIASTEST (normally no need to turn it on)
 
 For adaptively changin the FDM property:             OPT   +=  -DFDMADAPTIVE (still developing function, not toally mature yet)
 
-For correctly choosing the FDM gravity softening:    OPT   +=  -DFDMGRAVSOFT
+For correctly choosing the FDM gravity softening:    OPT   +=  -DFDMGRAVSOFT (Suggest to turn it on)
+
+For fix the parameter of FdmNormMass to be the particle mass: OPT  +=  -DFDMFIXNORM (if turned on, FdmNormMass will be useless.)
 
 For the new functions to be available, the parameter file for starting the simulation is different from original Gadget2.
 Please look through the paramter file example carefully, 
