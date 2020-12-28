@@ -26,7 +26,7 @@ For some further correction of FDM:                  OPT   +=  -DFDMBIAS (Sugges
 
 For testing the further correction:                  OPT   +=  -DFDMBIASTEST (normally no need to turn it on)
 
-For adaptively changin the FDM property:             OPT   +=  -DFDMADAPTIVE (still developing function, not toally mature yet)
+For adaptively changin the FDM property:             OPT   +=  -DFDMADAPTIVE (not totally mature)
 
 For correctly choosing the FDM gravity softening:    OPT   +=  -DFDMGRAVSOFT (Suggest to turn it on)
 
@@ -43,8 +43,10 @@ The normalization factor for FDM simulation in the unit of 1e10 solar mass:     
 
 The size of the kernel chosen for FDM in the unit of kpc:                           FdmKernelLambda 1.414213562
 
-I am still deveping the code and making more consistency test.
 If you find any question using the code, please email me: liam_bx@126.com
 
 Zhang Jiajun at The Chinese University of Hong Kong
 also at Shanghai Jiao Tong University
+
+Notice that I have not updated this code for long time and I think I won't update it anymore.
+There is no guarantee that the result produced by this code is correct or the code will work as you expected.
